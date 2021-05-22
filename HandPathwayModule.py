@@ -26,8 +26,10 @@ class handetection():
             for landmrk in self.info.multi_hand_landmarks:
                 if draw:
                     self.mpdraw.draw_landmarks(frame, landmrk,
-                                               self.mphands.HAND_CONNECTIONS)
-        return frame
+                                                       self.mphands.HAND_CONNECTIONS)
+        # else:
+        #     print("no")
+        return frame, self.info.multi_hand_landmarks
 
 
     def find_landmark(self,frame,handnum=0,draw=True):
@@ -67,8 +69,8 @@ def main():
 
     while True:
         ret, frame = cam.read()
-        frame = det.hand_find(frame)
-        lmlist = det.find_landmark(frame)
+        frame, ishand = det.hand_find(frame)
+        #lmlist = det.find_landmark(frame)
         currt = time.time()
         fps = 1 / (currt - prevt)
         prevt = currt
