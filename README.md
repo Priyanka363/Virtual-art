@@ -1,2 +1,2 @@
 # Virtual-art
-A virtual painter in which drawing can be made by hands from certain distance.
+A virtual painter where you can draw something by hands from a certain distance.
